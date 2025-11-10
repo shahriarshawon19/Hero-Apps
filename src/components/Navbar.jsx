@@ -30,7 +30,7 @@ const Navbar = () => {
 
         <Link to="/" className="w-10 text-xl flex items-center gap-2 ">
           <img src={icon} alt="logo" className="w-8 h-8 " />
-          HERO.IO
+          <span className="text-2xl font-bold bg-gradient-to-r from-purple-700 to-purple-400 bg-clip-text text-transparent">HERO.IO</span>
         </Link>
       </div>
 
