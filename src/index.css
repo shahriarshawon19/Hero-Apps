@@ -1,0 +1,11 @@
+@import "tailwindcss";
+@plugin "daisyui" {
+   themes: light --default;
+ }
+
+
+ .gradient-btn:hover {
+  background: linear-gradient(125.07deg, rgba(159, 98, 242, 1), rgba(99, 46, 227, 1) 100%);
+  transform: scale(1.05);
+  color: white;
+}
