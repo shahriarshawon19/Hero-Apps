@@ -1,38 +1,24 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { FaStar } from 'react-icons/fa';
 import { LuDownload } from 'react-icons/lu';
 import { Link, useLoaderData } from 'react-router';
 
 const Card = () => {
   const apps = useLoaderData();
-  const [search, setSearch] = useState('');
-
-  const term = search.trim().toLowerCase();
-  const searchedApps = term 
-    ? apps.filter(app => app.title.toLowerCase().includes(term))
-    : apps;
+  const show = apps.slice(0, 12);
 
   return (
     <div>
-      <div className='flex justify-between mb-5'>
-        <p className='font-bold text-2xl'>
-          ({searchedApps.length}) Apps Found
+      <div>
+        <h1 className='text-center text-5xl font-bold mb-5'>Trending Apps</h1>
+        <p className='text-center text-gray-400 mb-7'>
+          Explore All Trending Apps on the Market developed by us
         </p>
-
-        <label className="input">
-          <input 
-            value={search} 
-            onChange={e => setSearch(e.target.value)} 
-            type="search" 
-            placeholder="Search Apps" 
-          />
-        </label>
       </div>
 
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4'>
-        {
-          searchedApps.map(app => (
-             <Link to={`/apps/${app.id}`} key={app.id}>
+        {show.map((app) => (
+          <Link to={`/apps/${app.id}`} key={app.id}>
             <div className="card bg-base-100 hover:scale-105 transition ease-in-out shadow-sm cursor-pointer">
               
               <figure className='h-48 overflow-hidden'>
@@ -58,8 +44,23 @@ const Card = () => {
 
             </div>
           </Link>
-          ))
-        }
+        ))}
+      </div>
+
+      <div className='flex items-center justify-center'>
+        <Link to='/apps'>
+          <button
+            style={{
+              background:
+                'linear-gradient(125.07deg, rgba(99, 46, 227, 1), rgba(159, 98, 242, 1) 100%)',
+              color: 'white',
+              borderRadius: '5px',
+            }}
+            className='font-semibold px-3 py-1 mt-5'
+          >
+            Show All
+          </button>
+        </Link>
       </div>
     </div>
   );

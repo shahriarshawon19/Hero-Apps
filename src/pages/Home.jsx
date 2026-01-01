@@ -2,8 +2,12 @@ import React from 'react';
 import logo from '../all-data/hero.png'
 import download from "../all-data/download.png"
 import store from "../all-data/download (1).jpeg"
+import Card from '../components/Card';
+
+
 
 const Home = () => {
+ 
     return (
         <div>
             <div className='mt-10'>
@@ -78,7 +82,7 @@ const Home = () => {
     </div>
   </div>
 </div>
-
+<Card></Card>
 
         </div>
     );
